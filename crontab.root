@@ -1,0 +1,4 @@
+# Gather nmon stats for 24 hours
+00 00 * * * /usr/local/bin/nmon -f -s300 -c288 -m /tmp/
+# Delete nmon data older than 30 days
+10 00 * * * /usr/bin/find /tmp/*.nmon -mtime +90 -exec rm {} \;
